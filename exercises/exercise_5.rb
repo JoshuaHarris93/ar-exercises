@@ -10,10 +10,10 @@ puts "----------"
 @stores = Store.all
 @total = @stores.sum(:annual_revenue)
 @average = @stores.sum(:annual_revenue) / @stores.count
-@millionaire = @stores.where("annual_revenue > 1000000")
+@millionaire = @stores.where("annual_revenue > ?", 1000000)
 
 puts "Here is the TOTAL revenue of all stores: #{@total}"
 
 puts "Here is the average ANNUAL revenue of all stores: #{@average}"
 
-puts "Here are the number of stores making over 1M$ annually: #{@millionaire}"
+puts "Here are the number of stores making over 1M$ annually: #{@millionaire.count}"
